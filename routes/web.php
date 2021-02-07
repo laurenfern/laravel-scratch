@@ -14,13 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    //use the request() function to grab the value of the key 'name'
+    // from the query string and set that as the value of the variable $name
+    $name = request('name');
 
-Route::get('/test', function () {
-    return view('test');
-});
-
-Route::get('/new-endpoint', function () {
-    return view('new-endpoint');
+    // use the view() function to display the view named 'test'.
+    // the second argument is an array. the keys in this array 
+    // will now be available to the 'test' view in test.blade.php
+    return view('test', [
+        'name' => $name
+    ]);
 });
