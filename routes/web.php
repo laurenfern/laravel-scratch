@@ -13,25 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// the {post} is a wildcard, it will accept anything. 
-// Ex) the URI http://laravel6tutorial.test/posts/asdfgh would work, and $post would be set to 'asdfgh'
-Route::get('/posts/{post}', function ($post) {
-    $posts = [
-        'my-first-post' => 'Hello, this is a first blog post.',
-        'my-second-post' => 'Now I am getting the hang of this blogging thing.'
-    ];
-
-    // check if the string from the URI (the $post) matches a key (ie slug) in the $posts array
-    if (!array_key_exists($post, $posts)) {
-        abort(404, 'Sorry, that post was not found.');
-    }
- 
-    return view('post', [
-        // this is the data to be passed to the 'post' view at resources/views/post.blade.php
-        'post' => $posts[$post]
-    ]);
-});
-
 Route::get('/', function(){
     return view('welcome');
 });
+
+//slightly modified from the lesson, bc the code from the lesson doesn't work in PHP 8.x
+// see https://laravel.com/docs/8.x/routing#basic-routing
+// add a use statement and a show method for the PostsController
+use App\Http\Controllers\PostsController;
+Route::get('posts/{post}', [PostsController::class, 'show']);
