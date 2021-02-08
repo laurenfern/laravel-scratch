@@ -1,1 +1,0 @@
-<h1>This is the new endpoint view</h1>

@@ -13,15 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    //use the request() function to grab the value of the key 'name'
-    // from the query string and set that as the value of the variable $name
-    $name = request('name');
+Route::get('/posts/{post}', function ($post) {
+    $posts = [
+        'my-first-post' => 'Hello, this is a first blog post.',
+        'my-second-post' => 'Now I am getting the hang of this blogging thing.'
+    ];
 
-    // use the view() function to display the view named 'test'.
-    // the second argument is an array. the keys in this array 
-    // will now be available to the 'test' view in test.blade.php
-    return view('test', [
-        'name' => $name
+    if (!array_key_exists($post, $posts)) {
+        abort(404, 'Sorry, that post was not found.');
+    }
+ 
+    return view('post', [
+        'post' => $posts[$post]
     ]);
+});
+
+Route::get('/', function(){
+    return view('welcome');
 });
