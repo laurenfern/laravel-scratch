@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// import the DB class. DB is in the global namespace, not the current namespace App\Http\Controllers
 use DB;
 // pull in Post
 use App\Models\Post;
@@ -18,15 +19,14 @@ class PostsController extends Controller
     // Another way to do this would be to put a backslash before DB like so : 
     // $post = \DB::table('posts')->where('slug', $slug)->first();
 
-      $post = Post::where('slug', $slug)->firstOrFail();
 
-      // the firstOrFail() above does this check for us. If not post is found, it will 404.
+      // the firstOrFail() does this check for us. If no post is found, it will 404.
       // if (! $post){
         // abort(404);
       // }
 
     return view('post', [
-      'post' => $post
+      'post' => Post::where('slug', $slug)->firstOrFail()
     ]);
   }
 }
