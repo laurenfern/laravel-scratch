@@ -17,6 +17,10 @@ Route::get('/', function(){
     return view('welcome');
 });
 
+Route::get('/contact', function(){
+		return view('contact');
+});
+
 //slightly modified from the lesson, bc the code from the lesson doesn't work in PHP 8.x
 // see https://laravel.com/docs/8.x/routing#basic-routing
 // add a use statement and a show method for the PostsController
