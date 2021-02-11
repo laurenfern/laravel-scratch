@@ -60,3 +60,9 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+## Miscellaneous Notes on Laravel from Scratch Course
+
+- Lesson 15: Integrate a Site Template
+-- if, after downloading the SimpleWork Template and adding those files to a commit, you get a warning `warning: CRLF will be replaced by LF in public/css/default.css.`  ... then you probably just cloned a project that was created on the MS Windows platform and git is auto-converting the files to the unix line endings. That's a good thing, assuming you're on a Unix platform. [http://lexsheehan.blogspot.com/2014/05/warning-crlf-will-be-replaced-by-lf-in.html]. 
