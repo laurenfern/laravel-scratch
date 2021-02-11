@@ -18,7 +18,11 @@ Route::get('/', function(){
 });
 
 Route::get('/contact', function(){
-		return view('contact');
+    return view('contact');
+});
+
+Route::get('/about', function(){
+  return view('about');
 });
 
 //slightly modified from the lesson, bc the code from the lesson doesn't work in PHP 8.x
