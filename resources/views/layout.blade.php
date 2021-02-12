@@ -19,10 +19,26 @@ Released   : 20140225
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 <!-- Linking to the css files like this href="fonts.css" will look in the /public directory. Below, we've moved 
 those files to their own directory within the /public directory. -->
-<link href="css/default.css" rel="stylesheet" />
-<link href="css/fonts.css" rel="stylesheet" />
+<link href="default.css" rel="stylesheet" />
+<link href="fonts.css" rel="stylesheet" />
 </head>
 <body>
+<div id="header-wrapper">
+  <div id="header" class="container">
+    <div id="logo">
+      <h1><a href="#">SimpleWork</a></h1>
+    </div>
+    <div id="menu">
+      <ul>
+        <li class="current_page_item"><a href="/" accesskey="1" title="">Homepage</a></li>
+        <li><a href="#" accesskey="2" title="">Our Clients</a></li>
+        <li><a href="/about" accesskey="3" title="">About Us</a></li>
+        <li><a href="#" accesskey="4" title="">Careers</a></li>
+        <li><a href="#" accesskey="5" title="">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
 @yield('content')
 </body>
 </html>
