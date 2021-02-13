@@ -22,10 +22,15 @@ Route::get('/contact', function(){
 });
 
 Route::get('/about', function(){
-  return view('about');
+  return view('about', [
+    'articles' => App\Models\Article::take(3)->latest()->get()
+  // other options besides fetching all records in reverse chron order
+  // take # like ::take(2)->get();
+  // paginate in sets of # like ::paginate(2);
+  ]);
 });
 
-//slightly modified from the lesson, bc the code from the lesson doesn't work in PHP 8.x
+//slightly modified from the lesson 8, bc the code from the lesson doesn't work in PHP 8.x
 // see https://laravel.com/docs/8.x/routing#basic-routing
 // add a use statement and a show method for the PostsController
 use App\Http\Controllers\PostsController;
