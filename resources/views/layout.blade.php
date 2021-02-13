@@ -19,8 +19,8 @@ Released   : 20140225
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 <!-- Linking to the css files like this href="fonts.css" will look in the /public directory. Below, we've moved 
 those files to their own directory within the /public directory. -->
-<link href="css/default.css" rel="stylesheet" />
-<link href="css/fonts.css" rel="stylesheet" />
+<link href="/css/default.css" rel="stylesheet" />
+<link href="/css/fonts.css" rel="stylesheet" />
 </head>
 <body>
 <div id="header-wrapper">
