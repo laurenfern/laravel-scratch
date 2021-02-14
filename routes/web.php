@@ -30,6 +30,10 @@ Route::get('/about', function(){
   ]);
 });
 
+// had to include the full path to ArticlesController, unlike in the video. 
+// otherwise, get an error `Target class [ArticlesController] does not exist`.
+Route::get('/articles/{article}', 'App\Http\Controllers\ArticlesController@show');
+
 //slightly modified from the lesson 8, bc the code from the lesson doesn't work in PHP 8.x
 // see https://laravel.com/docs/8.x/routing#basic-routing
 // add a use statement and a show method for the PostsController
