@@ -1,5 +1,10 @@
 @extends('layout')
 
+@section('head')
+<!-- pulling in this stylesheet just for this view -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
+@endsection  
+
 @section('content')
   <div id="wrapper">
     <div id="page" class="container">
