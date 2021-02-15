@@ -21,7 +21,7 @@ Released   : 20140225
 those files to their own directory within the /public directory. -->
 <link href="/css/default.css" rel="stylesheet" />
 <link href="/css/fonts.css" rel="stylesheet" />
-<!-- @yield('head') now any view that wants to hook in to where we render this head section can do so
+<!-- by yielding head below, now any view that wants to hook in to where we render this head section can do so
 this is useful if you want to pull in a script or stylesheet only for one view, not the entire site.
 see -->
 @yield('head')

@@ -44,6 +44,7 @@ Route::post('/articles', 'App\Http\Controllers\ArticlesController@store');
 // a route with a wildcard, like /articles/{article}, will take precedence over any route below it,
 // so put the other /articles routes above it
 Route::get('/articles/{article}', 'App\Http\Controllers\ArticlesController@show');
+Route::get('/articles/{article}/edit', 'App\Http\Controllers\ArticlesController@edit');
  
 
 //slightly modified from the lesson 8, bc the code from the lesson doesn't work in PHP 8.x
