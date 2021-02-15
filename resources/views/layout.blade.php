@@ -21,6 +21,7 @@ Released   : 20140225
 those files to their own directory within the /public directory. -->
 <link href="/css/default.css" rel="stylesheet" />
 <link href="/css/fonts.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
 </head>
 <body>
 <div id="header-wrapper">

@@ -4,10 +4,6 @@
 <div id="wrapper">
   <div id="page" class="container">
     <div id="content">
-      <div class="title">
-        <h2>Welcome to our website</h2>
-        <span class="byline">Mauris vulputate dolor sit amet nibh</span> </div>
-      <p><img src="images/banner.jpg" alt="" class="image image-full" /> </p>
       <ul class="style1">
         <!-- this is Blade syntax -->
         @foreach ($articles as $article)
@@ -15,6 +11,7 @@
             <h3>
               <a href="/articles/{{$article->id}}">{{ $article->title }}</a>
             </h3>
+            <p><img src="images/banner.jpg" alt="" class="image image-full" /> </p>
             <p><a href="#">{{ $article->excerpt }}</a></p>
           </li>
         @endforeach

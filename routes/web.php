@@ -31,15 +31,19 @@ Route::get('/about', function(){
 });
 
 Route::get('/articles', function(){
-	return view('articles.list', [
-		'articles' => App\Models\Article::get()
+	return view('articles.index', [
+		'articles' => App\Models\Article::latest()->get()
 	]);
 });
 
-// had to include the full path to ArticlesController, unlike in the video. 
+// had to include the full path to ArticlesController, unlike in the lesson 15 video. 
 // otherwise, get an error `Target class [ArticlesController] does not exist`.
 Route::get('/articles', 'App\Http\Controllers\ArticlesController@index');
+Route::get('articles/create', 'App\Http\Controllers\ArticlesController@create');
+// a route with a wildcard, like /articles/{article}, will take precedence over any route below it,
+// so put the other /articles routes above it
 Route::get('/articles/{article}', 'App\Http\Controllers\ArticlesController@show');
+ 
 
 //slightly modified from the lesson 8, bc the code from the lesson doesn't work in PHP 8.x
 // see https://laravel.com/docs/8.x/routing#basic-routing
