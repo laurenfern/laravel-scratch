@@ -30,6 +30,12 @@ Route::get('/about', function(){
   ]);
 });
 
+Route::get('/articles', function(){
+	return view('articles.list', [
+		'articles' => App\Models\Article::get()
+	]);
+});
+
 // had to include the full path to ArticlesController, unlike in the video. 
 // otherwise, get an error `Target class [ArticlesController] does not exist`.
 Route::get('/articles/{article}', 'App\Http\Controllers\ArticlesController@show');
