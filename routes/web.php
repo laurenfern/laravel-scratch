@@ -45,6 +45,11 @@ Route::post('/articles', 'App\Http\Controllers\ArticlesController@store');
 // so put the other /articles routes above it
 Route::get('/articles/{article}', 'App\Http\Controllers\ArticlesController@show');
 Route::get('/articles/{article}/edit', 'App\Http\Controllers\ArticlesController@edit');
+// Unlike in the lesson 24 video, am using put instead of post here. This allows the update action to work.
+// When using post I got the following error
+// `Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException
+// The PUT method is not supported for this route. Supported methods: GET, HEAD, POST.`
+Route::put('articles/{article}', 'App\Http\Controllers\ArticlesController@update');
  
 
 //slightly modified from the lesson 8, bc the code from the lesson doesn't work in PHP 8.x

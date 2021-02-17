@@ -13,8 +13,14 @@ the article being edited, and uses those values as the "default values" for each
     <div id="page" class="container">
       <h1 class="heading has-text-weight-bold is-size-4">Update Article</h1>
 
-      <form method="POST" action="/articles">
-        @csrf
+      <!-- here, submitting a POST request to the server ie method="POST", bc the browser only understands
+      requests for POST and GET. but as part of that POST request we give more info to Laravel 
+      in the directive @method('PUT'). This is a hidden input (@csrf is also a hidden input) and it tells
+      Laravel that what we actually want is a PUT request-->
+      <form method="POST" action="/articles/{{ $article->id }}">
+        <!-- always include the @csrf directive to protect against Cross Site Request Forgery -->
+        @csrf 
+        @method('PUT')
         <div class="field">
           <label class="label" for="title">Title</label>
           <div class="control">
