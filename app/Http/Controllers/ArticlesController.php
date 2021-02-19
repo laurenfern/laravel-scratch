@@ -64,6 +64,7 @@ class ArticlesController extends Controller
     return redirect('/articles/' . $article->id);
   }
 
+  // validateArticle function can be used in both show and update bc the items being validated are the same in both places
   protected function validateArticle()
   {
     return request()->validate([
