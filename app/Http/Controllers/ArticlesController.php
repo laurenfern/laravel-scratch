@@ -41,14 +41,9 @@ class ArticlesController extends Controller
   // Persist the new resource (save it)
   public function store()
   {
-    request()->validate([
-      'title' => 'required',
-      'excerpt' => 'required',
-      'body' => 'required'
-    ]);
-
-    // use the create method to create an instance, fill the instance with an array of data from the form, and persist it
-    Article::create([
+    // use the create method to create an instance, and request method to validate, 
+    //  then fill the instance with an array of data from the form, and persist it
+    Article::create(request()->validate([
       'title' => request('title'),
       'excerpt' => request('excerpt'),
       'body' => request('body')
@@ -66,16 +61,13 @@ class ArticlesController extends Controller
   // Persist the edited resource
   public function update(Article $article)
   {
-      request()->validate([
+    // use the update method. don't need to use create method bc there's already a created instance
+    // use the request method to validate
+    $article->update(request()->validate([
        'title' => 'required',
        'excerpt' => 'required',
        'body' => 'required'
-      ]);
-
-    $article->title = request('title');
-    $article->excerpt = request('excerpt');
-    $article->body = request('body');
-    $article->save();
+      ]));
 
     return redirect('/articles/' . $article->id);
   }
