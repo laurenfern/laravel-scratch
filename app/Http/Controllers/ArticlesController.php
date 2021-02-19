@@ -59,23 +59,19 @@ class ArticlesController extends Controller
   }
   
   // Show a view to edit an existing resource
-  public function edit($id)
+  public function edit(Article $article)
   {
-    $article = Article::find($id); // find the article with this id
     return view('articles.edit', ['article' => $article]); // pass the article to the edit view
-    // another way to write this is return view('articles.edit', compact('article'));
   }
   
   // Persist the edited resource
-  public function update($id)
+  public function update(Article $article)
   {
       request()->validate([
        'title' => 'required',
        'excerpt' => 'required',
        'body' => 'required'
       ]);
-    
-    $article = Article::find($id); // find the article with this id
 
     $article->title = request('title');
     $article->excerpt = request('excerpt');
