@@ -43,11 +43,7 @@ class ArticlesController extends Controller
   {
     // use the create method to create an instance, and request method to validate, 
     //  then fill the instance with an array of data from the form, and persist it
-    Article::create(request()->validate([
-      'title' => request('title'),
-      'excerpt' => request('excerpt'),
-      'body' => request('body')
-    ]));
+    Article::create($this->validateArticle());
 
     return redirect('/articles'); // send the user back to the Articles index page
   }
@@ -63,13 +59,18 @@ class ArticlesController extends Controller
   {
     // use the update method. don't need to use create method bc there's already a created instance
     // use the request method to validate
-    $article->update(request()->validate([
-       'title' => 'required',
-       'excerpt' => 'required',
-       'body' => 'required'
-      ]));
+    $article->update($this->validateArticle());
 
     return redirect('/articles/' . $article->id);
+  }
+
+  protected function validateArticle()
+  {
+    return request()->validate([
+      'title' => 'required',
+      'excerpt' => 'required',
+      'body' => 'required'
+      ]);
   }
 
   // Delete the resource
