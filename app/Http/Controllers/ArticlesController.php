@@ -7,28 +7,38 @@ use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
 {
+  // Render a list of a resource.
   public function index()
   {
-    // Render a list of a resource.
     $articles = Article::latest()->get();
 
     return view('articles.index', ['articles' => $articles]);
   }
 
-  public function show($id)
+  // Show a single resource
+  public function show(Article $article)
     {
-      // Show a single resource
-      $article = Article::find($id);
-
+        /*  $article = Article::findOrFail($id); 
+            don't need to write the query anymore, bc Laravel accepts the Article model
+            as a parameter in the show function. So behind the scenes, it writes the following query 
+                Article::where('id', 1)->first();
+            note: the wildcard in routes/web.php ie Route::get('/articles/{article}' has to 
+            exactly match the second parameter in the show function. 
+            ex) in routes/web.php   Route::get('/articles/{foobar}' 
+            in ArticlesController.php 
+              public function show(Article $foobar)
+              return view('articles.show', ['article' => $foobar])
+        */
       return view('articles.show', ['article' => $article]);
     }
 
+    // Shows a view to create a new resource
   public function create()
   {
-    // Shows a view to create a new resource
     return view('articles.create');
   }
 
+  // Persist the new resource (save it)
   public function store()
   {
     request()->validate([
@@ -37,7 +47,6 @@ class ArticlesController extends Controller
       'body' => 'required'
     ]);
     
-    // Persist the new resource (save it)
     $article = new Article(); //create a new article instance
     
     $article->title = request('title'); // fill the article instance with the data from the form
@@ -49,16 +58,16 @@ class ArticlesController extends Controller
     return redirect('/articles'); // send the user back to the Articles index page
   }
   
+  // Show a view to edit an existing resource
   public function edit($id)
   {
-    // Show a view to edit an existing resource
     $article = Article::find($id); // find the article with this id
     return view('articles.edit', ['article' => $article]); // pass the article to the edit view
     // another way to write this is return view('articles.edit', compact('article'));
   }
   
-  public function update($id)
   // Persist the edited resource
+  public function update($id)
   {
       request()->validate([
        'title' => 'required',
@@ -76,8 +85,8 @@ class ArticlesController extends Controller
     return redirect('/articles/' . $article->id);
   }
 
+  // Delete the resource
   public function destroy()
   {
-    // Delete the resource
   }
 }
