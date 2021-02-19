@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
 /* Example for fetching an article by its slug instead of its id (its primary key)
     
       // overwrite the getRouteKeyName function 

@@ -46,14 +46,13 @@ class ArticlesController extends Controller
       'excerpt' => 'required',
       'body' => 'required'
     ]);
-    
-    $article = new Article(); //create a new article instance
-    
-    $article->title = request('title'); // fill the article instance with the data from the form
-    $article->excerpt = request('excerpt');
-    $article->body = request('body');
 
-    $article->save(); // persist 
+    // use the create method to create an instance, fill the instance with an array of data from the form, and persist it
+    Article::create([
+      'title' => request('title'),
+      'excerpt' => request('excerpt'),
+      'body' => request('body')
+    ]);
 
     return redirect('/articles'); // send the user back to the Articles index page
   }
