@@ -47,7 +47,7 @@ class ArticlesController extends Controller
       'title' => request('title'),
       'excerpt' => request('excerpt'),
       'body' => request('body')
-    ]);
+    ]));
 
     return redirect('/articles'); // send the user back to the Articles index page
   }
