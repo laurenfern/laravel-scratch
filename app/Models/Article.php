@@ -10,6 +10,11 @@ class Article extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function path()
+    {
+      return route('articles.show', $this);
+    }
 /* Example for fetching an article by its slug instead of its id (its primary key)
     
       // overwrite the getRouteKeyName function 

@@ -61,7 +61,7 @@ class ArticlesController extends Controller
     // use the request method to validate
     $article->update($this->validateArticle());
 
-    return redirect(route('articles.show' , $article ));
+    return redirect(route( $article->path() ));
   }
 
   // validateArticle function can be used in both show and update bc the items being validated are the same in both places
