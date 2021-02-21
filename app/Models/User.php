@@ -49,7 +49,7 @@ class User extends Authenticatable
         // articles table must have a column for user_id for this to work, this is what links Articles to Users
     }
 
-    // Get the Projects that belong to a User
+    // Get the Projects that belong to a user
     public function projects()
     {
         return $this->hasMany(Project::class);
