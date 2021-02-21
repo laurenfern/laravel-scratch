@@ -43,7 +43,7 @@ Route::get('/articles/create', 'App\Http\Controllers\ArticlesController@create')
 Route::post('/articles', 'App\Http\Controllers\ArticlesController@store');
 // a route with a wildcard, like /articles/{article}, will take precedence over any route below it,
 // so put the other /articles routes above it
-Route::get('/articles/{article}', 'App\Http\Controllers\ArticlesController@show');
+Route::get('/articles/{article}', 'App\Http\Controllers\ArticlesController@show')->name('articles.show');
 Route::get('/articles/{article}/edit', 'App\Http\Controllers\ArticlesController@edit');
 // Unlike in the lesson 24 video, am using put instead of post here. This allows the update action to work.
 // When using post I got the following error

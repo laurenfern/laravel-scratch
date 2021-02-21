@@ -45,7 +45,7 @@ class ArticlesController extends Controller
     //  then fill the instance with an array of data from the form, and persist it
     Article::create($this->validateArticle());
 
-    return redirect('/articles'); // send the user back to the Articles index page
+    return redirect(route('articles.index')); // send the user back to the Articles index page
   }
   
   // Show a view to edit an existing resource
@@ -61,7 +61,7 @@ class ArticlesController extends Controller
     // use the request method to validate
     $article->update($this->validateArticle());
 
-    return redirect('/articles/' . $article->id);
+    return redirect(route('articles.show' , $article ));
   }
 
   // validateArticle function can be used in both show and update bc the items being validated are the same in both places
