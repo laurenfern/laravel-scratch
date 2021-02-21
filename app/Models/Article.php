@@ -15,6 +15,12 @@ class Article extends Model
     {
       return route('articles.show', $this);
     }
+
+    // grab the User that the Article belongs to
+    public function user()
+    {
+
+    }
 /* Example for fetching an article by its slug instead of its id (its primary key)
     
       // overwrite the getRouteKeyName function 

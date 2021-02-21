@@ -40,4 +40,27 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Get the Articles that belong to a User
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
+        // select * from articles where user_id = the id of the current User instance
+        // articles table must have a column for user_id for this to work, this is what links Articles to Users
+    }
+
+    // Get the Projects that belong to a User
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+        // select * from projects where user_id = the id of the current User instance
+        // projects table must have a column for user_id for this to work, this is what links Projects to Users
+      }
 }
+
+/* Examples
+      $user = User::find(1) // select * from user where id = 1
+      $user->projects; // select * from projects where user_id = 1
+      $user-> projects // access the projects property of $user, which is now a "Collection" of Projects that you can iterate over like so
+      $user->projects->first() or $user->projects->last() or $user->projects->find(1) etc
+*/ 
