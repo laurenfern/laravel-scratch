@@ -16,11 +16,14 @@ class Article extends Model
       return route('articles.show', $this);
     }
 
-    // grab the User that the Article belongs to
-    public function user()
+    // grab the author that the Article belongs to (saying author instead of User)
+    public function author()
     {
-      return $this->belongsTo(User::class);
+      return $this->belongsTo(User::class, 'user_id'); // explicitly set the foreign key as 'user_id' as the second argument,
+      // otherwise Laravel will assume the foreign key should be 'author_id' which is not a column in the articles table
     }
+
+
 /* Example for fetching an article by its slug instead of its id (its primary key)
     
       // overwrite the getRouteKeyName function 
