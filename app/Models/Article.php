@@ -19,7 +19,7 @@ class Article extends Model
     // grab the User that the Article belongs to
     public function user()
     {
-
+      return $this->belongsTo(User::class);
     }
 /* Example for fetching an article by its slug instead of its id (its primary key)
     
