@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+// note: Laravel 6 imports Faker/Generator explicitly here. should still work the same.
 
 class UserFactory extends Factory
 {
