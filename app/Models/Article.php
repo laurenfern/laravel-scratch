@@ -23,6 +23,11 @@ class Article extends Model
       // otherwise Laravel will assume the foreign key should be 'author_id' which is not a column in the articles table
     }
 
+    public function tags()
+    {
+      return $this->belongsToMany(Tag::class)
+    }
+
 
 /* Example for fetching an article by its slug instead of its id (its primary key)
     
