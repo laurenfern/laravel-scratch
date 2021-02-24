@@ -6,7 +6,7 @@
     <div id="content">
       <ul class="style1">
         <!-- this is Blade syntax -->
-        @foreach ($articles as $article)
+        @forelse ($articles as $article)
           <li class="first">
             <h3>
               <a href="{{ route('articles.show', $article) }}">
@@ -16,7 +16,9 @@
             <p><img src="images/banner.jpg" alt="" class="image image-full" /> </p>
             <p><a href="#">{{ $article->excerpt }}</a></p>
           </li>
-        @endforeach
+        @empty
+          <p>No relevant articles yet.</p>
+        @endforelse
         <!-- end Blade syntax -->
       </ul>
     </div>
