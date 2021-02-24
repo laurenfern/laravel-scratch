@@ -9,7 +9,11 @@
         <span class="byline">Mauris vulputate dolor sit amet nibh</span> </div>
       <p><img src="images/banner.jpg" alt="" class="image image-full" /> </p>
       <p>{{$article->body}}</p>
-    </div>
+      <p>
+        @foreach($article->tags as $tag)
+          <a href="#">{{ $tag->name }}</a>
+        @endforeach
+      </p>
   </div>
 </div>
 
